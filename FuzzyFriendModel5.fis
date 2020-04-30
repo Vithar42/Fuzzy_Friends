@@ -1,0 +1,135 @@
+[System]
+Name='Fuzzy Friend Model 5'
+Type='mamdani'
+Version=2.0
+NumInputs=12
+NumOutputs=1
+NumRules=11
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Frequency'
+Range=[0 10]
+NumMFs=2
+MF1='Never':'trimf',[-5.006 -0.00578 4.994]
+MF2='Often':'trimf',[5 10 15]
+
+[Input2]
+Name='Positivity'
+Range=[-5 5]
+NumMFs=2
+MF1='Unpleasint':'trimf',[-10 -10 0]
+MF2='Pleasint':'trimf',[0 10 10]
+
+[Input3]
+Name='Have_your_Back'
+Range=[-5 5]
+NumMFs=3
+MF1='DefendYou':'trimf',[0 5 6]
+MF2='AttackYou':'trimf',[-6 -5 0]
+MF3='RunAway':'trimf',[-5.006 -0.00578 4.994]
+
+[Input4]
+Name='Story'
+Range=[0 10]
+NumMFs=3
+MF1='Dont.know.anything':'gaussmf',[1 0]
+MF2='Know.a.little':'smf',[1.04335260115607 5.21]
+MF3='Know.it.all':'smf',[3.0028901734104 8.16]
+
+[Input5]
+Name='Thef'
+Range=[0 5]
+NumMFs=3
+MF1='No':'trapmf',[-2.25 -0.25 0.25 2.25]
+MF2='Maybe':'dsigmf',[5 1.5 -5 3.5]
+MF3='Definitly':'trapmf',[2.75 4.75 5.25 7.25]
+
+[Input6]
+Name='Trust'
+Range=[-5 5]
+NumMFs=3
+MF1='Untrustworthy':'trimf',[-10 -5 0]
+MF2='Trustworthy':'trimf',[0 5 10]
+MF3='Nutural':'trapmf',[-2.5 0 5 5]
+
+[Input7]
+Name='Loans'
+Range=[-5 5]
+NumMFs=3
+MF1='Scammer':'dsigmf',[1.099 -7.5 1.099 -2.5]
+MF2='Meh':'dsigmf',[1.099 -2.5 1.099 2.5]
+MF3='Cosigner':'dsigmf',[2.09 1.82057803468208 39.7 5.84057803468208]
+
+[Input8]
+Name='Gifts'
+Range=[0 10]
+NumMFs=3
+MF1='Never':'gaussmf',[2.123 -5.551e-17]
+MF2='Small':'gaussmf',[2.123 5]
+MF3='Large':'gaussmf',[5 10]
+
+[Input9]
+Name='Sacrifices'
+Range=[-5 5]
+NumMFs=3
+MF1='Forced':'trimf',[-9.99421965317919 -4.99421965317919 0.00578034682080908]
+MF2='Joint':'trimf',[0 5 10]
+MF3='Some':'trimf',[-5 0 5]
+
+[Input10]
+Name='Opinion'
+Range=[0 10]
+NumMFs=3
+MF1='Dont.Care':'gauss2mf',[1.699 -0.5 1.699 0.5]
+MF2='Might.have.value':'gauss2mf',[1.699 4.5 1.699 5.5]
+MF3='Important':'gauss2mf',[1.699 9.5 1.699 10.5]
+
+[Input11]
+Name='Personal'
+Range=[-5 5]
+NumMFs=3
+MF1='Will.Abuse':'zmf',[-5.5 0]
+MF2='meh':'gaussmf',[1.07269834313834 0]
+MF3='Open.and.Willing':'smf',[0 4.5]
+
+[Input12]
+Name='Emotional'
+Range=[-5 5]
+NumMFs=3
+MF1='Strong.dislike':'trimf',[-10 -5 0]
+MF2='Vested':'trimf',[0 5 10]
+MF3='None':'trimf',[-5 0 5]
+
+[Output1]
+Name='Frindship'
+Range=[0 11]
+NumMFs=11
+MF1='Nemesis':'trapmf',[0 0 1 1.5]
+MF2='Regular.Advesary':'trapmf',[2.5 3 4 4.5]
+MF3='Lose.Advesary':'trapmf',[3.5 4 5 5.5]
+MF4='Stranger':'trapmf',[4.5 5 6 6.5]
+MF5='Lose.Acuqaintance':'trapmf',[5.5 6 7 7.5]
+MF6='Regular.Acquaintance':'trapmf',[6.5 7 8 8.5]
+MF7='Allies':'trapmf',[7.5 8 9 9.5]
+MF8='Offical.Friend':'trapmf',[8.5 9 10 10.5]
+MF9='Best.Friend':'trapmf',[9.5 10 11 11]
+MF10='Attacker':'trapmf',[1.5 2 3 3.5]
+MF11='Official.Enemy':'trapmf',[0.5 1 2 2.5]
+
+[Rules]
+0 2 1 3 1 2 3 3 2 3 3 2, 9 (1) : 1
+0 2 1 3 1 2 3 3 3 3 3 2, 8 (0.8) : 1
+0 2 1 2 2 3 2 3 0 3 2 0, 7 (0.7) : 1
+0 2 3 2 2 3 2 2 0 2 0 0, 6 (0.6) : 1
+0 2 3 1 2 0 2 1 0 0 0 0, 5 (0.5) : 1
+1 0 0 0 0 0 0 0 0 0 0 0, 4 (0.4) : 1
+0 1 3 1 2 0 2 1 0 0 0 0, 3 (0.5) : 1
+0 1 3 2 2 3 2 1 0 2 0 0, 2 (0.6) : 1
+0 1 2 2 2 3 1 1 0 1 2 0, 10 (0.7) : 1
+0 1 2 3 3 1 1 1 3 1 1 1, 11 (0.8) : 1
+0 1 2 3 3 1 1 1 1 1 1 1, 1 (1) : 1
