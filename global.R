@@ -26,3 +26,15 @@ JoeSAug <- matrix(c(2,5,4,7,0,4,4,3,2,9,4,3), nrow = 1, ncol = 12)
 test <- evalfis(JoeSAug, fis)
 test <- evalfis(JoeSAug, fis, time = 1, point_n = 101, draw = FALSE)
 
+
+
+
+
+
+HRpS <- 10
+
+
+
+LFTpH <- CYEpH / CYpLF
+
+LFTpD <- LFTpH * HRpS
